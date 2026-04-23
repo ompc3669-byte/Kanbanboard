@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Advanced Kanban</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- LOGIN -->
+<div id="loginPage" class="center">
+  <h2>Login</h2>
+  <input type="text" id="username" placeholder="Enter username">
+  <button onclick="login()">Login</button>
+</div>
+
+<!-- MAIN APP -->
+<div id="app" class="hidden">
+
+  <header>
+    <h1>Kanban Board</h1>
+    <div>
+      <button onclick="toggleDarkMode()">🌙</button>
+      <button onclick="logout()">Logout</button>
+    </div>
+  </header>
+
+  <!-- ANALYTICS -->
+  <div class="analytics">
+    <div>Tasks: <span id="total"></span></div>
+    <div>Completed: <span id="doneCount"></span></div>
+    <div>In Progress: <span id="progressCount"></span></div>
+  </div>
+
+  <div class="board">
+
+    <div class="column" id="todo">
+      <h2>Tasks</h2>
+      <div class="task-list" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+      <button onclick="addTask('todo')">+ Add Task</button>
+    </div>
+
+    <div class="column" id="inprogress">
+      <h2>In Progress</h2>
+      <div class="task-list" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+    </div>
+
+    <div class="column" id="done">
+      <h2>Done</h2>
+      <div class="task-list" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+    </div>
+
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
